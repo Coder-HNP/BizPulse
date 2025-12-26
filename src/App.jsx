@@ -5,6 +5,7 @@ import { OrganizationProvider } from './contexts/OrganizationContext';
 import { PrivateRoute } from './components/common/PrivateRoute';
 import { Layout } from './components/layout/Layout';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Onboarding from './pages/Onboarding';
 import RawMaterials from './pages/RawMaterials';
 import Production from './pages/Production';
@@ -24,6 +25,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
 
             <Route path="/onboarding" element={
               <PrivateRoute>
