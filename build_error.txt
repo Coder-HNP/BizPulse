@@ -1,0 +1,113 @@
+﻿
+> bizpulse@0.0.0 build
+> vite build
+
+[36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 1899 modules transformed.
+node.exe : 
+[31mΓ£ù[39m Build 
+failed in 14.45s
+At C:\Program Files\no
+dejs\npm.ps1:29 char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: ([31mΓ£ù[   
+ 39m Build failed     
+in 14.45s:String)     
+[], RemoteExcept    
+ion
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+[31merror during 
+build:
+[31m[vite]: Rollup 
+failed to resolve 
+import "react-is" 
+from 
+"C:/BossHNP/Coding 
+Done by harshil/NPCC/B
+izPulse/node_modules/r
+echarts/es6/util/React
+Utils.js".
+This is most likely 
+unintended because it 
+can break your 
+application at 
+runtime.
+If you do want to 
+externalize this 
+module explicitly add 
+it to
+`build.rollupOptions.e
+xternal`[31m
+    at viteLog (file:/
+//C:/BossHNP/Coding%20
+Done%20by%20harshil/NP
+CC/BizPulse/node_modul
+es/vite/dist/node/chun
+ks/config.js:33634:57)
+    at file:///C:/Boss
+HNP/Coding%20Done%20by
+%20harshil/NPCC/BizPul
+se/node_modules/vite/d
+ist/node/chunks/config
+.js:33668:73
+    at onwarn (file://
+/C:/BossHNP/Coding%20D
+one%20by%20harshil/NPC
+C/BizPulse/node_module
+s/@vitejs/plugin-react
+/dist/index.js:76:7)
+    at file:///C:/Boss
+HNP/Coding%20Done%20by
+%20harshil/NPCC/BizPul
+se/node_modules/vite/d
+ist/node/chunks/config
+.js:33668:28
+    at onRollupLog (fi
+le:///C:/BossHNP/Codin
+g%20Done%20by%20harshi
+l/NPCC/BizPulse/node_m
+odules/vite/dist/node/
+chunks/config.js:33663
+:63)
+    at onLog (file:///
+C:/BossHNP/Coding%20Do
+ne%20by%20harshil/NPCC
+/BizPulse/node_modules
+/vite/dist/node/chunks
+/config.js:33466:4)
+    at file:///C:/Boss
+HNP/Coding%20Done%20by
+%20harshil/NPCC/BizPul
+se/node_modules/rollup
+/dist/es/shared/node-e
+ntry.js:21032:32
+    at Object.logger 
+[as onLog] (file:///C:
+/BossHNP/Coding%20Done
+%20by%20harshil/NPCC/B
+izPulse/node_modules/r
+ollup/dist/es/shared/n
+ode-entry.js:22919:9)
+    at ModuleLoader.ha
+ndleInvalidResolvedId 
+(file:///C:/BossHNP/Co
+ding%20Done%20by%20har
+shil/NPCC/BizPulse/nod
+e_modules/rollup/dist/
+es/shared/node-entry.j
+s:21663:26)
+    at file:///C:/Boss
+HNP/Coding%20Done%20by
+%20harshil/NPCC/BizPul
+se/node_modules/rollup
+/dist/es/shared/node-e
+ntry.js:21621:26[39m

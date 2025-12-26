@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to get user data
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    // Helper to check if user belongs to the org
+    function belongsToOrg(orgId) {
+      return request.auth != null && getUserData().orgId == orgId;
+    }
+
+    // Organizations
+    match /organizations/{orgId} {
+      allow read: if belongsToOrg(orgId);
+      allow create: if request.auth != null; // User can create an org
+      allow update: if belongsToOrg(orgId) && getUserData().role == 'admin';
+    }
+
+    // Users
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // General collections scoped by orgId field
+    // We enforce that every document must have 'orgId' matching the user's orgId
+    
+    match /{collection}/{docId} {
+       // This matches any collection at the root like raw_materials, products, etc.
+       // EXCEPT organizations and users which are handled above?
+       // No, wildcards match everything. We need to be specific or use specific paths.
+    }
+    
+    // Raw Materials
+    match /raw_materials/{itemId} {
+      allow read: if belongsToOrg(resource.data.orgId);
+      allow create: if belongsToOrg(request.resource.data.orgId);
+      allow update, delete: if belongsToOrg(resource.data.orgId);
+    }
+    
+    // Products
+    match /products/{itemId} {
+      allow read: if belongsToOrg(resource.data.orgId);
+      allow create: if belongsToOrg(request.resource.data.orgId);
+      allow update, delete: if belongsToOrg(resource.data.orgId);
+    }
+
+    // Inventory Items
+    match /inventory_items/{itemId} {
+      allow read: if belongsToOrg(resource.data.orgId);
+      // Updates should ideally be done via Cloud Functions or strict logic
+      allow write: if belongsToOrg(request.resource.data.orgId); 
+    }
+
+    // ... define other collections similarly
+  }
+}
